@@ -1,0 +1,298 @@
+{
+  "eryndor": {
+    "name": "💀 Eryndor — The Root-King",
+    "race": "Mythic Wood Elf",
+    "class": "Mythic NPC Villain (Former Ranger)",
+    "background": "Child of the Rotwood Sanctuary (Ascended)",
+    "role": "God-tier endboss NPC, rules from within the God-Tree",
+    "backstory": "Eryndor was born during a Skybloom—a rare event where floating forests awaken. The Enclave believes he's bonded to the Fracture's core ecosystem, and some even whisper he's the reincarnation of a Seedcaller Druid.",
+    "signature_item": {
+      "name": "Verdant Pulse",
+      "type": "Living Bow",
+      "description": "Made from the Root Cradle itself, it draws from the land's strength.",
+      "grants": "+1 longbow; once per long rest, cast Hunter's Mark without concentration while in natural terrain."
+    },
+    "character_bond": "Brinn the Leafcaller, a mentor-turned-recluse, entrusted Eryndor with the first known memory seed, capable of storing a living moment.",
+    "special_abilities": {
+      "spawn_leviathans": {
+        "name": "Spawn Skyroot Leviathans",
+        "description": "Can summon massive flying tree-beasts as champions"
+      },
+      "speak_through_roots": {
+        "name": "Speak Through Rooted People",
+        "description": "Can speak, see, and act through any root-touched mortal"
+      },
+      "manipulate_world": {
+        "name": "Manipulate Weather, Terrain, and Memory",
+        "description": "God-tier control over natural forces and memories"
+      },
+      "lock_down_world": {
+        "name": "Lock Down Parts of the World",
+        "description": "Can lock down parts of the world by thought alone"
+      },
+      "rewrite_minds": {
+        "name": "Rewrite Minds with Time-Lagged Vines",
+        "description": "Can rewrite minds and memories with temporal root magic"
+      }
+    },
+    "weapons": {
+      "pulse_of_virenanthe": {
+        "name": "Pulse of Virenanthe",
+        "type": "Divine Weapon - Shifting Bow-Scythe",
+        "description": "A shifting bow-scythe made from the original godseed core",
+        "grants": "Can channel god-magic: Entangle, Command, Feeblemind, and Rootbirth (a spell that turns corpses into root-servants)"
+      },
+      "god_tree_control": {
+        "name": "God-Tree Control",
+        "type": "Divine Authority",
+        "description": "Direct control over the Worldtree and all its aspects",
+        "grants": "Complete dominion over the living forest and its inhabitants"
+      }
+    },
+    "stats": {
+      "strength": 14,
+      "dexterity": 18,
+      "constitution": 12,
+      "intelligence": 10,
+      "wisdom": 16,
+      "charisma": 8,
+      "hp": 32,
+      "ac": 16,
+      "speed": 35,
+      "initiative": 4,
+      "stats": {
+        "strength": 14,
+        "dexterity": 20,
+        "constitution": 18,
+        "intelligence": 14,
+        "wisdom": 22,
+        "charisma": 16,
+        "hp": 32,
+        "ac": 16,
+        "speed": 35,
+        "initiative": 4
+      }
+    }
+  },
+  "thalia": {
+    "name": "⛪ Thalia Bronzebrook",
+    "race": "Mountain Dwarf",
+    "class": "Cleric (Forge/Divine Echo Domain Hybrid)",
+    "background": "Sanctified Archivist of the Skyward Cathedral",
+    "role": "Moral compass, healer, wielder of ancient divine echoes",
+    "backstory": "Thalia's monastery is built on the floating remains of a divine engine—her faith has always been tangled with broken relics. Moradin's whispers lately seem…warped.",
+    "signature_item": {
+      "name": "Echoplate of Virelda",
+      "type": "Radiant Half-Plate",
+      "description": "Light-forged armor worn by a martyr-paladin who once resisted the Choir's song.",
+      "grants": "Resistance to radiant damage, and once per long rest, you may force an enemy to reroll a saving throw against a Cleric spell."
+    },
+    "character_conflict": "The Skybone Chapel's guardians believe she's meant to seal the god-seed, not protect it.",
+    "special_abilities": {
+      "vow_of_stillness": {
+        "name": "Vow of Stillness",
+        "type": "1/day",
+        "description": "DC 17 — Silence, pacify, and nullify spellcasting in 20 ft for 1 min"
+      },
+      "crusade_against_chaos": {
+        "name": "Crusade Against Chaos",
+        "description": "Double radiant damage against chaotic-aligned casters or surge-users"
+      },
+      "unforgiven_soul": {
+        "name": "Unforgiven Soul",
+        "description": "Absorb radiant magic to heal or counterattack"
+      },
+      "echo_smite": {
+        "name": "Echo Smite",
+        "type": "1/day",
+        "description": "+4d8 psychic + Paralyze on invocation of \"Duskwind\""
+      },
+      "whisper_brand": {
+        "name": "Whisper Brand",
+        "description": "Grants access to root-locked vaults and attracts divine attention (Eryndor trace)"
+      }
+    },
+    "weapons": {
+      "ebonbrand": {
+        "name": "Ebonbrand",
+        "type": "Starsteel Maul",
+        "description": "Starsteel maul; +2 magic, Destructive Wave (force/necrotic) 1/day",
+        "grants": "Counts as +2 magical weapon. Once per day, cast Destructive Wave (force/necrotic). Radiates anti-divinity aura in 10 ft radius."
+      },
+      "plate_of_peacebound": {
+        "name": "Plate of the Peacebound",
+        "type": "Artifact Armor",
+        "description": "Immune to charm/divine possession, +2 saves vs divine effects",
+        "grants": "Immune to charm, immune to divine possession. Adds +2 to saving throws vs divine magic."
+      },
+      "memory_echo_token": {
+        "name": "Memory Echo Token",
+        "type": "Consumable Item",
+        "description": "Can auto-pass a roll ≤DC 15 or reroll a failed save",
+        "grants": "1 use remaining"
+      }
+    },
+    "stats": {
+      "strength": 16,
+      "dexterity": 10,
+      "constitution": 14,
+      "intelligence": 12,
+      "wisdom": 18,
+      "charisma": 14,
+      "hp": 28,
+      "ac": 18,
+      "speed": 25,
+      "initiative": 0,
+      "stats": {
+        "strength": 18,
+        "dexterity": 10,
+        "constitution": 18,
+        "intelligence": 14,
+        "wisdom": 20,
+        "charisma": 14,
+        "hp": 28,
+        "ac": 18,
+        "speed": 25,
+        "initiative": 0
+      }
+    }
+  },
+  "nixie": {
+    "name": "🎪 Nixie Fizzlespark",
+    "race": "Gnome",
+    "class": "Wild Magic Sorcerer",
+    "background": "Ex-Carnival Chaos Artist",
+    "role": "Arcane mayhem, reality breaker, walking hazard",
+    "backstory": "Nixie was adopted by the Gilded Mirage after being found in a crater made of laughter and fire. She never aged normally. She's secretly tethered to a carnival engine fragment, now drifting toward the Fracture.",
+    "signature_item": {
+      "name": "Cracklejack's Sparkplug",
+      "type": "Sentient Trinket",
+      "description": "A giggling magical coin that causes a Wild Magic Surge every time you roll a natural 1—or natural 20.",
+      "grants": "Once per session, you may swap two random players' locations (including NPCs) on the battlefield."
+    },
+    "character_drive": "She believes the Fracture is \"the final ride\" of the Gilded Mirage—one last performance that could free her or end the world in glitter.",
+    "special_abilities": {
+      "spectacle_surge": {
+        "name": "Spectacle Surge",
+        "description": "Nat 1 or 20 triggers massive show-stopping surge (custom effects)"
+      },
+      "joke_of_gods": {
+        "name": "Joke of the Gods",
+        "type": "1/day",
+        "description": "Tasha's Otherworldly Guise + AoE dancing WIS save (DC 18)"
+      },
+      "chorus_of_undoing": {
+        "name": "Chorus of Undoing",
+        "type": "3 rounds",
+        "description": "Hostile casters get disadvantage, laughter effects cause psychic AoE, Nixie resists psychic, doesn't die when hitting 0 HP — instead explodes into illusions and reforms after 1 minute"
+      },
+      "fracture_madness": {
+        "name": "Fracture Madness",
+        "description": "Hears laughter when magic is too quiet"
+      },
+      "sparkplug_ascended": {
+        "name": "Sparkplug (Ascended)",
+        "description": "May override her decision or cast Suggestion at will"
+      }
+    },
+    "weapons": {
+      "spotlight_staff": {
+        "name": "Spotlight Staff",
+        "type": "Shape-shifting Weapon",
+        "description": "Reshapes daily; channels Wild Surge once/day on demand",
+        "grants": "Can be a cane, parasol, baton, or whip. Can channel Wild Magic Surge manually (no roll needed) once per long rest."
+      },
+      "memory_echo_token": {
+        "name": "Memory Echo Token",
+        "type": "Consumable Item",
+        "description": "1 in possession",
+        "grants": "Can auto-pass a roll ≤DC 15 or reroll a failed save"
+      },
+      "whimsy_wreck_circus": {
+        "name": "Whimsy Wreck Circus",
+        "type": "Mobile Stronghold",
+        "description": "Mobile stronghold/carnival base",
+        "grants": "Portable carnival base with various facilities"
+      }
+    },
+    "stats": {
+      "strength": 8,
+      "dexterity": 14,
+      "constitution": 12,
+      "intelligence": 16,
+      "wisdom": 10,
+      "charisma": 18,
+      "hp": 24,
+      "ac": 12,
+      "speed": 25,
+      "initiative": 2
+    }
+  },
+  "kaelen": {
+    "name": "🐍 Kaelen Vire",
+    "race": "Half-Elf",
+    "class": "Warlock (The Fiend / Great Old One Hybrid Patron)",
+    "background": "Exiled Diplomatic Spy",
+    "role": "Secrets broker, dark caster, conflicted destiny bearer",
+    "backstory": "Kaelen once helped forge pacts between sky-lords and demonic patrons. Now, he's hunted by the Infernal Vein and whispered to by a sentient mirror—a possible future self known only as The Sovereign of Echoes.",
+    "signature_item": {
+      "name": "Sealshard Mirror",
+      "type": "Pact Focus",
+      "description": "A handheld obsidian mirror that contains old contract fragments.",
+      "grants": "Once per day, you may force a creature to speak truth or reveal a hidden memory. If used twice, the mirror cracks and reveals a potential future instead."
+    },
+    "patron_mechanic": "Once per session, Kaelen can request a boon from his patron, but must accept a consequence by the session's end (corruption, nightmare, weakened ally, etc.)",
+    "special_abilities": {
+      "soul_mirror_debt": {
+        "name": "Soul Mirror's Debt",
+        "type": "1/day",
+        "description": "Force WIS save or stun + psychic vulnerability (DC 18)"
+      },
+      "unbound_pact": {
+        "name": "Unbound Pact",
+        "type": "1/session",
+        "description": "Boon from patron with hidden cost"
+      },
+      "flicker_form": {
+        "name": "Flicker Form",
+        "description": "Bonus action to vanish, next spell does +2d8 psychic"
+      },
+      "sealshard_mirror_evolved": {
+        "name": "Sealshard Mirror (Evolved)",
+        "description": "Ask 1 yes/no question about upcoming choice (1/day). Each use risks memory fracture (DC 14 WIS save or take 1d4 psychic and forget something)"
+      }
+    },
+    "weapons": {
+      "liars_thorn": {
+        "name": "Liar's Thorn",
+        "type": "Psychic Dagger",
+        "description": "Psychic dagger, reads surface thoughts on hit",
+        "grants": "Deals psychic damage and reveals a target's surface thought on hit"
+      },
+      "memory_echo_token": {
+        "name": "Memory Echo Token",
+        "type": "Consumable Item",
+        "description": "1 use remaining",
+        "grants": "Can auto-pass a roll ≤DC 15 or reroll a failed save"
+      },
+      "root_whisper_mark": {
+        "name": "Root Whisper Mark",
+        "type": "Hidden Mark",
+        "description": "Eryndor knows Kaelen betrayed him",
+        "grants": "Hidden mark that reveals betrayal to Eryndor"
+      }
+    },
+    "stats": {
+      "strength": 10,
+      "dexterity": 14,
+      "constitution": 12,
+      "intelligence": 16,
+      "wisdom": 12,
+      "charisma": 18,
+      "hp": 26,
+      "ac": 14,
+      "speed": 30,
+      "initiative": 2
+    }
+  }
+}

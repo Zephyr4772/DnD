@@ -1,0 +1,166 @@
+/* Turn Taker Wheel specific styles – leverage existing neon fantasy palette */
+.turn-taker-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.selection-panel, .results-panel {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 25px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.selection-panel::before, .results-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(72,219,251,0.05) 0%, rgba(255,119,198,0.05) 100%);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.selection-panel h2, .results-panel h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    color: #48dbfb;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.characters-select-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.char-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #ff9ff3;
+    cursor: pointer;
+}
+
+.char-checkbox input {
+    accent-color: #ff6b9d;
+    transform: scale(1.2);
+}
+
+.primary-btn, .secondary-btn, .spin-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #ff6b9d, #c44569);
+    color: #fff;
+}
+
+.secondary-btn {
+    background: linear-gradient(135deg, #48dbfb, #00d2d3);
+    color: #fff;
+}
+
+.spin-btn {
+    background: linear-gradient(135deg, #feca57, #ff9ff3);
+    color: #0f0f23;
+    padding: 16px 48px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    border-radius: 50px;
+    box-shadow: 0 0 25px rgba(255, 159, 243, 0.6);
+    position: relative; /* sits naturally below the wheel */
+    display: block;
+    margin: 25px auto 0; /* center horizontally */
+    opacity: 1;
+    transition: transform 0.2s ease;
+}
+
+.spin-btn:not(.disabled):hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+.spin-btn.disabled {
+    filter: grayscale(0.8) brightness(0.6);
+    cursor: not-allowed;
+}
+
+.primary-btn:hover, .secondary-btn:hover, .spin-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+#wheelCanvas {
+    /* existing rules remain */
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 107, 157, 0.4);
+}
+
+.results-panel ol {
+    list-style: decimal inside;
+    margin-top: 10px;
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.results-panel li {
+    /* existing rules remain */
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #feca57;
+}
+
+/* ===================== */
+/* Winner overlay styles */
+/* ===================== */
+.wheel-panel {
+    position: relative;
+}
+
+.winner-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.2);
+    padding: 20px 45px;
+    border-radius: 18px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: #0f0f23;
+    background: linear-gradient(135deg, #feca57, #ff9ff3);
+    box-shadow: 0 0 40px rgba(255, 159, 243, 0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.winner-display.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+

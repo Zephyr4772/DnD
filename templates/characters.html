@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Characters - Epic Party Roster</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='characters.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">👥 Epic Party Roster</h1>
+            <p class="subtitle">Your Legendary D&D Adventure Party</p>
+            <nav class="nav-links">
+                <a href="/" class="nav-link">🎲 Dice Roller</a>
+                <a href="/characters" class="nav-link active">👥 View Characters</a>
+                <a href="/create-character" class="nav-link">✨ Create Character</a>
+                <a href="/turn-taker" class="nav-link">🌀 Turn Taker</a>
+            </nav>
+        </header>
+
+        <div class="party-info">
+            <h2>🚀 Shared Party Item: The Verdant Moth</h2>
+            <p>A magnificent, fast, customizable skyship that carries your party through the realms</p>
+            <div class="ship-modules">
+                <div class="module">🎪 Nixie's Confetti Cannon</div>
+                <div class="module">🌿 Eryndor's Observation Perch</div>
+                <div class="module">⛪ Thalia's Prayer Alcove</div>
+                <div class="module">🐍 Kaelen's Shadow Mirror Vault</div>
+            </div>
+            <p class="ship-status">Current Status: Stable, but unable to follow into Fracture Core</p>
+        </div>
+
+        <div class="characters-header">
+            <h2>🎭 Character Roster</h2>
+            <a href="/create-character" class="create-new-btn">✨ Create New Character</a>
+        </div>
+
+        <div class="characters-grid">
+            {% for char_id, character in characters.items() %}
+            <div class="character-card" data-character="{{ char_id }}">
+                {% if character.image_url %}
+                <div class="character-image">
+                    <img src="{{ character.image_url }}" alt="{{ character.name }}" onerror="this.style.display='none'">
+                </div>
+                {% endif %}
+                <div class="character-header">
+                    <h2 class="character-name">{{ character.name }}</h2>
+                    <div class="character-basics">
+                        <span class="race">{{ character.race }}</span>
+                        <span class="class">{{ character.class }}</span>
+                    </div>
+                    <div class="character-actions">
+                        <button class="edit-character-btn" onclick="editCharacter('{{ char_id }}')" title="Edit Character">✏️</button>
+                        <button class="delete-character-btn" onclick="deleteCharacter('{{ char_id }}')" title="Delete Character">🗑️</button>
+                    </div>
+                </div>
+
+                <div class="character-info">
+                    <div class="info-section">
+                        <h3>📋 Background</h3>
+                        <p class="background">{{ character.background }}</p>
+                        <p class="role"><strong>Role:</strong> {{ character.role }}</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>🌟 Backstory</h3>
+                        <p class="backstory">{{ character.backstory }}</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>⚔️ Signature Item</h3>
+                        <div class="signature-item">
+                            <h4>"{{ character.signature_item.name }}" – {{ character.signature_item.type }}</h4>
+                            <p>{{ character.signature_item.description }}</p>
+                            <p><strong>Grants:</strong> {{ character.signature_item.grants }}</p>
+                        </div>
+                    </div>
+
+                    {% if character.character_bond %}
+                    <div class="info-section">
+                        <h3>🧭 Character Bond</h3>
+                        <p>{{ character.character_bond }}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if character.character_conflict %}
+                    <div class="info-section">
+                        <h3>🕊️ Character Conflict</h3>
+                        <p>{{ character.character_conflict }}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if character.character_drive %}
+                    <div class="info-section">
+                        <h3>🤡 Character Drive</h3>
+                        <p>{{ character.character_drive }}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if character.patron_mechanic %}
+                    <div class="info-section">
+                        <h3>🐚 Patron Mechanic</h3>
+                        <p>{{ character.patron_mechanic }}</p>
+                    </div>
+                    {% endif %}
+
+                    {% if character.special_abilities %}
+                    <div class="info-section">
+                        <h3>⚡ Special Abilities</h3>
+                        {% for ability_id, ability in character.special_abilities.items() %}
+                        <div class="ability-item" data-ability-id="{{ ability_id }}">
+                            <div class="ability-header">
+                                <h4>{{ ability.name }}</h4>
+                                <button class="remove-ability-btn" onclick="removeCharacterAbility('{{ char_id }}', '{{ ability_id }}')" title="Remove Ability">🗑️</button>
+                            </div>
+                            {% if ability.type %}
+                            <p class="ability-type">{{ ability.type }}</p>
+                            {% endif %}
+                            <p>{{ ability.description }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    {% if character.weapons %}
+                    <div class="info-section">
+                        <h3>⚔️ Weapons & Equipment</h3>
+                        {% for weapon_id, weapon in character.weapons.items() %}
+                        <div class="weapon-item" data-weapon-id="{{ weapon_id }}">
+                            <div class="weapon-header">
+                                <h4>"{{ weapon.name }}" – {{ weapon.type }}</h4>
+                                <button class="remove-weapon-btn" onclick="removeCharacterWeapon('{{ char_id }}', '{{ weapon_id }}')" title="Remove Weapon">🗑️</button>
+                            </div>
+                            <p>{{ weapon.description }}</p>
+                            <p><strong>Grants:</strong> {{ weapon.grants }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="stats-section">
+                    <h3>📊 Character Stats</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <label>Strength</label>
+                            <input type="number" class="stat-input" data-stat="strength" value="{{ character.stats.strength }}" min="1" max="30">
+                        </div>
+                        <div class="stat-item">
+                            <label>Dexterity</label>
+                            <input type="number" class="stat-input" data-stat="dexterity" value="{{ character.stats.dexterity }}" min="1" max="30">
+                        </div>
+                        <div class="stat-item">
+                            <label>Constitution</label>
+                            <input type="number" class="stat-input" data-stat="constitution" value="{{ character.stats.constitution }}" min="1" max="30">
+                        </div>
+                        <div class="stat-item">
+                            <label>Intelligence</label>
+                            <input type="number" class="stat-input" data-stat="intelligence" value="{{ character.stats.intelligence }}" min="1" max="30">
+                        </div>
+                        <div class="stat-item">
+                            <label>Wisdom</label>
+                            <input type="number" class="stat-input" data-stat="wisdom" value="{{ character.stats.wisdom }}" min="1" max="30">
+                        </div>
+                        <div class="stat-item">
+                            <label>Charisma</label>
+                            <input type="number" class="stat-input" data-stat="charisma" value="{{ character.stats.charisma }}" min="1" max="30">
+                        </div>
+                        <div class="stat-item">
+                            <label>HP</label>
+                            <input type="number" class="stat-input" data-stat="hp" value="{{ character.stats.hp }}" min="1" max="999">
+                        </div>
+                        <div class="stat-item">
+                            <label>AC</label>
+                            <input type="number" class="stat-input" data-stat="ac" value="{{ character.stats.ac }}" min="1" max="30">
+                        </div>
+                        <div class="stat-item">
+                            <label>Speed</label>
+                            <input type="number" class="stat-input" data-stat="speed" value="{{ character.stats.speed }}" min="5" max="120">
+                        </div>
+                        <div class="stat-item">
+                            <label>Initiative</label>
+                            <input type="number" class="stat-input" data-stat="initiative" value="{{ character.stats.initiative }}" min="-5" max="20">
+                        </div>
+                    </div>
+                    <button class="save-stats-btn" onclick="saveStats('{{ char_id }}')">💾 Save Changes</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='characters.js') }}"></script>
+</body>
+</html> 

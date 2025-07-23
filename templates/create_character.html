@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Character - Epic Character Builder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='characters.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">✨ Epic Character Builder</h1>
+            <p class="subtitle">Forge Your Legend, Create Your Destiny</p>
+            <nav class="nav-links">
+                <a href="/" class="nav-link">🎲 Dice Roller</a>
+                <a href="/characters" class="nav-link">👥 View Characters</a>
+                <a href="/create-character" class="nav-link active">✨ Create Character</a>
+                <a href="/turn-taker" class="nav-link">🌀 Turn Taker</a>
+            </nav>
+        </header>
+
+        <div class="character-template-section">
+            <div class="template-header">
+                <h2>🎭 Character Creation</h2>
+                <div class="template-actions">
+                    <a href="/characters" class="view-characters-btn">👥 View Characters</a>
+                </div>
+            </div>
+
+            <div class="character-template">
+                <form class="template-form" id="characterForm">
+                    <div class="template-section">
+                        <h3>📋 Basic Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Character Name</label>
+                                <input type="text" id="name" name="name" required>
+                                <div class="form-help">Enter your character's full name</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="race">Race</label>
+                                <input type="text" id="race" name="race" required>
+                                <div class="form-help">e.g., Human, Elf, Dwarf, etc.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="class">Class</label>
+                                <input type="text" id="class" name="class" required>
+                                <div class="form-help">e.g., Fighter, Wizard, Rogue, etc.</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="background">Background</label>
+                                <textarea id="background" name="background" required></textarea>
+                                <div class="form-help">Brief description of your character's background</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="role">Role</label>
+                                <input type="text" id="role" name="role" required>
+                                <div class="form-help">e.g., Tank, Healer, DPS, Support</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="backstory">Backstory</label>
+                                <textarea id="backstory" name="backstory" required></textarea>
+                                <div class="form-help">Detailed backstory of your character</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="image_url">Character Image URL (Optional)</label>
+                                <input type="url" id="image_url" name="image_url">
+                                <div class="form-help">Link to an image of your character</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="template-section">
+                        <h3>⚔️ Signature Item</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signature_item_name">Item Name</label>
+                                <input type="text" id="signature_item_name" name="signature_item_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signature_item_type">Item Type</label>
+                                <input type="text" id="signature_item_type" name="signature_item_type" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="signature_item_description">Description</label>
+                                <textarea id="signature_item_description" name="signature_item_description" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="signature_item_grants">Grants</label>
+                                <textarea id="signature_item_grants" name="signature_item_grants" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="template-section">
+                        <h3>🎭 Character Traits</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="character_bond">Character Bond</label>
+                                <textarea id="character_bond" name="character_bond"></textarea>
+                                <div class="form-help">What does your character care about most?</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="character_conflict">Character Conflict</label>
+                                <textarea id="character_conflict" name="character_conflict"></textarea>
+                                <div class="form-help">What inner conflict drives your character?</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="character_drive">Character Drive</label>
+                                <textarea id="character_drive" name="character_drive"></textarea>
+                                <div class="form-help">What motivates your character to adventure?</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="patron_mechanic">Patron Mechanic</label>
+                                <textarea id="patron_mechanic" name="patron_mechanic"></textarea>
+                                <div class="form-help">Any special patron or mechanical abilities</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="template-section">
+                        <h3>⚡ Special Abilities</h3>
+                        <div id="abilities-container">
+                            <div class="ability-entry">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="ability_name_0">Ability Name</label>
+                                        <input type="text" id="ability_name_0" name="ability_name_0" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ability_type_0">Ability Type</label>
+                                        <input type="text" id="ability_type_0" name="ability_type_0">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="ability_description_0">Description</label>
+                                        <textarea id="ability_description_0" name="ability_description_0" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-entry-btn" onclick="addAbility()">➕ Add Another Ability</button>
+                    </div>
+
+                    <div class="template-section">
+                        <h3>⚔️ Weapons & Equipment</h3>
+                        <div id="weapons-container">
+                            <div class="weapon-entry">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="weapon_name_0">Weapon Name</label>
+                                        <input type="text" id="weapon_name_0" name="weapon_name_0" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="weapon_type_0">Weapon Type</label>
+                                        <input type="text" id="weapon_type_0" name="weapon_type_0" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="weapon_description_0">Description</label>
+                                        <textarea id="weapon_description_0" name="weapon_description_0" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="weapon_grants_0">Grants</label>
+                                        <textarea id="weapon_grants_0" name="weapon_grants_0" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-entry-btn" onclick="addWeapon()">➕ Add Another Weapon</button>
+                    </div>
+
+                    <div class="template-section">
+                        <h3>📊 Character Stats</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="strength">Strength</label>
+                                <input type="number" id="strength" name="strength" value="10" min="1" max="30" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dexterity">Dexterity</label>
+                                <input type="number" id="dexterity" name="dexterity" value="10" min="1" max="30" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="constitution">Constitution</label>
+                                <input type="number" id="constitution" name="constitution" value="10" min="1" max="30" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="intelligence">Intelligence</label>
+                                <input type="number" id="intelligence" name="intelligence" value="10" min="1" max="30" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="wisdom">Wisdom</label>
+                                <input type="number" id="wisdom" name="wisdom" value="10" min="1" max="30" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="charisma">Charisma</label>
+                                <input type="number" id="charisma" name="charisma" value="10" min="1" max="30" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="hp">Hit Points</label>
+                                <input type="number" id="hp" name="hp" value="10" min="1" max="999" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ac">Armor Class</label>
+                                <input type="number" id="ac" name="ac" value="10" min="1" max="30" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="speed">Speed</label>
+                                <input type="number" id="speed" name="speed" value="30" min="5" max="120" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="initiative">Initiative</label>
+                                <input type="number" id="initiative" name="initiative" value="0" min="-5" max="20" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="template-actions">
+                        <button type="button" class="clear-template-btn" onclick="clearForm()">🗑️ Clear Form</button>
+                        <button type="submit" class="create-character-btn">✨ Create Character</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='characters.js') }}"></script>
+</body>
+</html> 

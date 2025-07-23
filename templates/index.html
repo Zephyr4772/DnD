@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Dice Roller - Epic Adventures</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🎲 Epic Dice Roller</h1>
+            <p class="subtitle">Roll Your Fate, Shape Your Destiny</p>
+            <nav class="nav-links">
+                <a href="/" class="nav-link active">🎲 Dice Roller</a>
+                <a href="/characters" class="nav-link">👥 View Characters</a>
+                <a href="/create-character" class="nav-link">✨ Create Character</a>
+            </nav>
+        </header>
+
+        <div class="dice-section">
+            <div class="dice-selector">
+                <h2>🎯 Choose Your Dice</h2>
+                <div class="dice-grid">
+                    <div class="dice-card" data-dice="d4">
+                        <div class="dice-icon">🎲</div>
+                        <h3>D4</h3>
+                        <div class="dice-sides">4 Sides</div>
+                        <div class="dice-description">Perfect for small damage rolls and simple checks</div>
+                        <button class="roll-btn">Roll D4</button>
+                    </div>
+                    <div class="dice-card" data-dice="d6">
+                        <div class="dice-icon">🎲</div>
+                        <h3>D6</h3>
+                        <div class="dice-sides">6 Sides</div>
+                        <div class="dice-description">Classic dice for most basic actions and damage</div>
+                        <button class="roll-btn">Roll D6</button>
+                    </div>
+                    <div class="dice-card" data-dice="d8">
+                        <div class="dice-icon">🎲</div>
+                        <h3>D8</h3>
+                        <div class="dice-sides">8 Sides</div>
+                        <div class="dice-description">Great for weapon damage and special abilities</div>
+                        <button class="roll-btn">Roll D8</button>
+                    </div>
+                    <div class="dice-card" data-dice="d10">
+                        <div class="dice-icon">🎲</div>
+                        <h3>D10</h3>
+                        <div class="dice-sides">10 Sides</div>
+                        <div class="dice-description">Used for percentile rolls and some damage types</div>
+                        <button class="roll-btn">Roll D10</button>
+                    </div>
+                    <div class="dice-card" data-dice="d12">
+                        <div class="dice-icon">🎲</div>
+                        <h3>D12</h3>
+                        <div class="dice-sides">12 Sides</div>
+                        <div class="dice-description">Powerful damage dice for heavy weapons</div>
+                        <button class="roll-btn">Roll D12</button>
+                    </div>
+                    <div class="dice-card" data-dice="d15">
+                        <div class="dice-icon">🎲</div>
+                        <h3>D15</h3>
+                        <div class="dice-sides">15 Sides</div>
+                        <div class="dice-description">Unique dice for special mechanics and custom tables</div>
+                        <button class="roll-btn">Roll D15</button>
+                    </div>
+                    <div class="dice-card" data-dice="d17">
+                        <div class="dice-icon">🎲</div>
+                        <h3>D17</h3>
+                        <div class="dice-sides">17 Sides</div>
+                        <div class="dice-description">Exotic dice for advanced gameplay and unique challenges</div>
+                        <button class="roll-btn">Roll D17</button>
+                    </div>
+                    <div class="dice-card" data-dice="d20">
+                        <div class="dice-icon">🎲</div>
+                        <h3>D20</h3>
+                        <div class="dice-sides">20 Sides</div>
+                        <div class="dice-description">The iconic dice for attacks, saves, and checks</div>
+                        <button class="roll-btn">Roll D20</button>
+                    </div>
+                    <div class="dice-card" data-dice="d100">
+                        <div class="dice-icon">🎲</div>
+                        <h3>D100</h3>
+                        <div class="dice-sides">100 Sides</div>
+                        <div class="dice-description">Perfect for random tables and percentile checks</div>
+                        <button class="roll-btn">Roll D100</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roll-history">
+                <h2>📜 Roll History</h2>
+                <div class="roll-results" id="rollResults">
+                    <div class="no-rolls">No rolls yet. Start rolling to see your results!</div>
+                </div>
+                <button class="clear-history-btn" onclick="clearHistory()">🗑️ Clear History</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turn Taker Wheel</title>
+    <!-- Re-use global fantasy UI styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='turn_taker.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🌀 Turn Taker Wheel</h1>
+            <p class="subtitle">Let fate decide the order of heroes</p>
+            <nav class="nav-links">
+                <a href="/" class="nav-link">🎲 Dice Roller</a>
+                <a href="/characters" class="nav-link">👥 View Characters</a>
+                <a href="/create-character" class="nav-link">✨ Create Character</a>
+                <a href="/turn-taker" class="nav-link active">🌀 Turn Taker</a>
+            </nav>
+        </header>
+
+        <section class="turn-taker-section">
+            <div class="selection-panel">
+                <h2>Select Participants</h2>
+                <div class="characters-select-list">
+                    {% for cid, char in characters.items() %}
+                    <label class="char-checkbox">
+                        <input type="checkbox" value="{{ cid }}" checked>
+                        <span>{{ char.name }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+                <button id="buildWheelBtn" class="primary-btn">Build Wheel</button>
+            </div>
+
+            <div class="wheel-panel">
+                <canvas id="wheelCanvas" width="450" height="450"></canvas>
+                <div id="winnerDisplay" class="winner-display"></div>
+                <button id="spinBtn" class="spin-btn disabled" disabled>SPIN</button>
+            </div>
+
+            <div class="results-panel">
+                <h2>Turn Order</h2>
+                <ol id="turnOrderList"></ol>
+                <button id="resetWheelBtn" class="secondary-btn">Reset</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Pass characters into global JS
+        window.INIT_CHARACTERS = {{ characters|tojson|safe }};
+    </script>
+    <script src="{{ url_for('static', filename='turn_taker.js') }}"></script>
+</body>
+</html>

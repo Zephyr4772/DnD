@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Dice Roller</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🎲 D&D Dice Roller</h1>
+            <p class="subtitle">Roll the dice of destiny</p>
+            <nav class="nav-links">
+                <a href="/" class="nav-link active">🎲 Dice Roller</a>
+                <a href="/characters" class="nav-link">👥 View Characters</a>
+                <a href="/create-character" class="nav-link">✨ Create Character</a>
+                <a href="/turn-taker" class="nav-link">🌀 Turn Taker</a>
+            </nav>
+        </header>
+
+        <div class="dice-section">
+            <div class="dice-selector">
+                <h2>Select Your Dice</h2>
+                <div class="dice-grid">
+                    {% for dice_type, dice_info in dice_types.items() %}
+                    <div class="dice-card" data-dice="{{ dice_type }}">
+                        <div class="dice-icon">🎲</div>
+                        <h3>{{ dice_info.name }}</h3>
+                        <p class="dice-sides">{{ dice_info.sides }} sides</p>
+                        <p class="dice-description">{{ dice_info.description }}</p>
+                        <button class="roll-btn">Roll {{ dice_type.upper() }}</button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="roll-history">
+                <h2>Roll History</h2>
+                <div id="rollResults" class="roll-results">
+                    <p class="no-rolls">No rolls yet. Click a dice to start!</p>
+                </div>
+                <button class="clear-history-btn" onclick="clearHistory()">Clear History</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
