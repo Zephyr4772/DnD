@@ -1,85 +1,52 @@
-# D&D Dice Roller
+# DnD Companion
 
-A comprehensive D&D dice rolling web application with support for all dice types from D2 to D1,000,000.
+A Flask web app for D&D 5e tables: roll dice, create characters, and browse saved
+character sheets.
 
 ## Features
 
-- **Complete Dice Set**: Roll any dice from D2 (coin flip) to D1,000,000
-- **Easy Navigation**: Simply click on any dice card to roll it
-- **Variable Quantities**: Choose how many dice to roll at once
-- **Custom Dice Notation**: Use the quick roll feature for custom dice (e.g., 2d20+5)
-- **Roll History**: Keep track of your recent rolls
-- **Beautiful UI**: Modern, fantasy-themed interface with smooth animations
+- **Dice roller** — the standard polyhedral set (`DICE_TYPES`), the app's landing page
+- **Character creation** — build a sheet through a form
+- **Character browser** — list and view saved characters
 
-## Dice Types Included
+Characters persist to a JSON store on disk (`load_characters` / `save_characters`),
+so there's no database to set up.
 
-- D2 (Coin flip)
-- D3, D4, D6, D8, D10, D12, D20 (Standard D&D dice)
-- D30, D50, D60, D100 (Extended dice)
-- D120, D144, D200, D500 (Unconventional dice)
-- D1000, D10000, D100000, D1000000 (Extreme dice)
+## Run it
 
-## How to Use
+```bash
+git clone https://github.com/Zephyr4772/DnD.git
+cd DnD
+pip install -r requirements.txt
+python app.py        # http://127.0.0.1:5000
+```
 
-1. **Simple Rolling**: Click on any dice card to roll that dice type
-2. **Multiple Dice**: Change the quantity in the top-right corner before clicking
-3. **Custom Rolls**: Use the "Quick Roll" section to enter custom dice notation like:
-   - `d20` (single D20)
-   - `2d6` (two D6 dice)
-   - `3d10+5` (three D10 dice plus 5)
+## Routes
 
-## Installation
+| Route | Page |
+|---|---|
+| `/` | Dice roller |
+| `/dice` | Dice roller |
+| `/characters` | Saved characters |
+| `/create-character` | Character creation form |
 
-1. Make sure you have Python 3.7+ installed
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the application:
-   ```bash
-   python app.py
-   ```
-4. Open your browser and go to `http://localhost:5000`
+## Layout
 
-## Technology Stack
+```
+app.py              routes, dice logic, character persistence
+templates/          dice.html, characters.html, create_character.html
+static/             characters.css, characters.js
+dnd book.txt        reference text
+```
 
-- **Backend**: Python Flask
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Styling**: Custom CSS with fantasy theme
-- **Fonts**: Google Fonts (Cinzel for headings, Roboto for body text)
+## Limitations
 
-## Features in Detail
+- **Single-user.** No accounts — everyone shares one character store.
+- **Flask dev server only.** Not configured for production serving.
+- **5e subset.** Character fields cover common cases, not the full ruleset.
+- No tests.
 
-### Dice Selection
-- Click any dice card to select and roll it
-- Visual feedback shows which dice is active
-- Quantity selector allows rolling multiple dice
+## Note
 
-### Results Display
-- Clear, easy-to-read results
-- Shows individual rolls and totals
-- Timestamp for each roll
-- Animated entry effects
-
-### Roll History
-- Tracks your last 10 rolls
-- Shows dice type, results, and time
-- Automatically updates with new rolls
-
-### Custom Dice Notation
-- Supports standard D&D notation
-- Examples: `d20`, `2d6`, `3d10+5`, `1d100`
-- Maximum dice sides: 1,000,000
-- Real-time validation and error messages
-
-## Browser Compatibility
-
-Works on all modern browsers:
-- Chrome/Chromium
-- Firefox
-- Safari
-- Edge
-
-## License
-
-This project is open source and available under the MIT License. 
+`dnd book.txt` and `New Text Document.txt` are byte-identical copies of the same
+reference text; only one is needed.
